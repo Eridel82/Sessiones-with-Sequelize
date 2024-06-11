@@ -1,0 +1,89 @@
+<%- include('./templates/header', {titulo: "Home Page"}) %>
+    <div class="container">
+        <div class="laptop">
+            <div class="screen">
+                <% if(req.session.userId){%>
+                    <h2 class="welcome">WELCOME user  <%= req.session.userId %></h2>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-outline-primary" type="button"><a href="/profile">Profile</a></button>
+                        <button class="btn btn-outline-info" type="button"><a href="/logout">Logout</a></button>
+                    </div>
+                <% } else { %>
+                    <h2 class="welcome">WELCOME</h2>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-outline-info" type="button"><a href="/login">Login</a></button>
+                        <button class="btn btn-outline-primary" type="button"><a href="/signup">Sign up</a></button>
+                    </div>
+                <% } %>
+            </div>
+            <div class="keyboard"></div>
+        </div>
+    </div>
+<%- include('./templates/footer') %>
+
+<style>
+    body {
+        background-image: url('http://localhost:3000/images/img3.jpg');        
+        background-size: cover;
+        font-family: 'Helvetica Neue', sans-serif;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .laptop {
+        margin-top: 5%;
+        width: 800px;
+        height: 600px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        opacity: 80%;
+        
+    }
+
+    .screen {
+        background-color: #191c20;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .welcome {
+        font-size: 48px;
+        margin-top: 20%;
+    }
+
+    .keyboard {
+        background-color: #191c20;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #f0f0f0
+    }
+</style>
